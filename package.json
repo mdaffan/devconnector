@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "webpack-dev-server --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "start": "nodemon server.js"
   },
   "author": "Affan",
   "license": "ISC",
@@ -17,11 +18,20 @@
     "babel-loader": "^8.0.5",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.0",
+    "mongoose": "^5.4.17",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.11.0",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.3.3"
+    "@babel/plugin-proposal-class-properties": "^7.3.3",
+    "nodemon": "^1.18.10"
   }
 }
