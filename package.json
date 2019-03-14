@@ -4,9 +4,10 @@
   "description": "Social network for geeks",
   "main": "server.js",
   "scripts": {
-    "dev": "webpack-dev-server --mode development",
-    "build": "webpack --mode production",
-    "start": "nodemon server.js"
+    "client-install": "npm install --prefix client",
+    "server": "nodemon server.js",
+    "client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Affan",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "babel-preset-env": "^1.7.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
     "express": "^4.16.4",
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.5.0",
