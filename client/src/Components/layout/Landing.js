@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { PropTypes } from 'prop-types'
+import { connect } from 'react-redux'
 class Navbar extends React.Component {
   constructor() {
     super()
@@ -32,4 +34,10 @@ class Navbar extends React.Component {
     )
   }
 }
-export default Navbar
+Landing.propTypes = {
+  auth: PropTypes.object.isRequired
+}
+const mapStateToProps = state => ({
+  auth: state.auth
+})
+export default connect(mapStateToProps)(Navbar)
