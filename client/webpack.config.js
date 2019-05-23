@@ -1,7 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
-
+let k = path.resolve(__dirname, '../client/src/Components/common/source.gif')
 module.exports = {
   mode: 'development',
   entry: ['babel-polyfill', './src'],
@@ -27,6 +27,16 @@ module.exports = {
             ]
           }
         }
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+
+        use: [
+          {
+            loader: 'url-loader?name=./../src/Components/common[name].[ext]',
+            options: {}
+          }
+        ]
       }
     ]
   },
