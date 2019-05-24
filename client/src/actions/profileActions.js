@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {
   GET_PROFILE,
+  SET_CURRENT_USER,
   PROFILE_LOADING,
   GET_ERRORS,
   CLEAR_CURRENT_PROFILE
@@ -45,5 +46,24 @@ export const setProfileLoading = () => {
 export const clearCurrentProfile = () => {
   return {
     type: CLEAR_CURRENT_PROFILE
+  }
+}
+//Delete Account
+export const deleteAccount = () => dispatch => {
+  if (window.confirm("Buddy you're sure right")) {
+    axios
+      .delete('http://localhost:5000/api/profile')
+      .then(res =>
+        dispatch({
+          type: SET_CURRENT_USER,
+          payload: {}
+        })
+      )
+      .catch(err =>
+        dispatch({
+          type: GET_ERRROS,
+          payload: err.response.data
+        })
+      )
   }
 }

@@ -13,6 +13,7 @@ import Dashboard from './Components/dashboard/Dashboard'
 import CreateProfile from '../src/Components/create_profile/CreateProfile'
 import PrivateRoute from '../src/Components/common/PrivateRoute'
 import store from './store'
+import EditProfile from './Components/edit-profile/EditProfile'
 //Check for token
 if (localStorage.jwtToken) {
   //Set auth token header auth
@@ -58,6 +59,13 @@ class App extends React.Component {
                   exact
                   path="/create-profile"
                   component={CreateProfile}
+                />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/edit-profile"
+                  component={EditProfile}
                 />
               </Switch>
             </div>
