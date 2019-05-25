@@ -14,6 +14,11 @@ import CreateProfile from '../src/Components/create_profile/CreateProfile'
 import PrivateRoute from '../src/Components/common/PrivateRoute'
 import store from './store'
 import EditProfile from './Components/edit-profile/EditProfile'
+import AddExperience from './Components/add-info/AddExperience'
+import AddEducation from './Components/add-info/AddEducation'
+import Profiles from './Components/profiles/Profiles'
+import Profile from './Components/view-profile/Profile'
+import NotFound from './Components/NotFound/NotFound'
 //Check for token
 if (localStorage.jwtToken) {
   //Set auth token header auth
@@ -68,6 +73,23 @@ class App extends React.Component {
                   component={EditProfile}
                 />
               </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/add-experience"
+                  component={AddExperience}
+                />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/add-education"
+                  component={AddEducation}
+                />
+              </Switch>
+              <Route exact path="/profiles" component={Profiles} />
+              <Route exact path="/profile/:handle" component={Profile} />
+              <Route exact path="/not-found" component={NotFound} />
             </div>
             <Footer />
           </div>

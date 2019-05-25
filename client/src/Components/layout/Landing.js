@@ -2,9 +2,10 @@ import { Link } from 'react-router-dom'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
 class Landing extends React.Component {
-  constructor() {
-    super()
-    this.state = {}
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/dashboard')
+    }
   }
 
   render() {

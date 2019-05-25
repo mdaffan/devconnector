@@ -78,11 +78,11 @@ router.get('/all', (req, res) => {
     .then(profile => {
       if (!profile) {
         errors.noprofile = 'There is no profile'
-        return res.status(404).json(errors)
+        return res.status(400).json(errors)
       }
       res.json(profile)
     })
-    .catch(err => res.status(404).json({ profile: 'There are no profiles' }))
+    .catch(err => res.status(400).json({ profile: 'There are no profiles' }))
 })
 //@route Post api/Profile
 // @desc Create or edit user profile

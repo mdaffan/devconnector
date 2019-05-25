@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {
   GET_PROFILE,
+  GET_PROFILES,
   SET_CURRENT_USER,
   PROFILE_LOADING,
   GET_ERRORS,
@@ -21,6 +22,24 @@ export const getCurrentProfile = () => dispatch => {
       dispatch({
         type: GET_PROFILE,
         payload: {}
+      })
+    )
+}
+//Get Profile By handle
+export const getProfileByHandle = handle => dispatch => {
+  dispatch(setProfileLoading())
+  axios
+    .get(`http://localhost:5000/api/profile/handle/${handle}`)
+    .then(res => {
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data
+      })
+    })
+    .catch(err =>
+      dispatch({
+        type: GET_PROFILE,
+        payload: null
       })
     )
 }
@@ -66,4 +85,81 @@ export const deleteAccount = () => dispatch => {
         })
       )
   }
+}
+//addExpereince actions
+export const addExperience = (data, history) => dispatch => {
+  axios
+    .post('http://localhost:5000/api/profile/experience', data)
+    .then(res => history.push('/dashboard'))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    )
+}
+//addEducation action
+export const addEducation = (data, history) => dispatch => {
+  axios
+    .post('http://localhost:5000/api/profile/education', data)
+    .then(res => history.push('/dashboard'))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    )
+}
+//Delete Expereince
+export const deleteExpereince = id => dispatch => {
+  axios
+    .delete(`http://localhost:5000/api/profile/experience/${id}`)
+    .then(res =>
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    )
+}
+//Delete Education
+export const deleteEducation = id => dispatch => {
+  axios
+    .delete(`http://localhost:5000/api/profile/education/${id}`)
+    .then(res =>
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    )
+}
+
+//Get All Profiles
+export const getProfiles = () => dispatch => {
+  dispatch(setProfileLoading())
+  axios
+    .get(`http://localhost:5000/api/profile/all`)
+    .then(res =>
+      dispatch({
+        type: GET_PROFILES,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_PROFILES,
+        payload: null
+      })
+    )
 }
