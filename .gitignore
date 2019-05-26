@@ -1,1 +1,5 @@
 node_modules
+package-lock.json
+/config/keys_dev.js
+/client/public/scripts/bundle.js
+/client/public/scripts/bundle.js.map
