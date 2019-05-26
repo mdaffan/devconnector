@@ -8,9 +8,7 @@ const User = require('../../models/User')
 const Profile = require('../../models/Profile')
 //Validation
 const validatePostInput = require('../../validation/post')
-//@route GET api/Posts/test
-// @desc Tests Posts route
-// @access Public
+
 //@route Post api/Posts
 // @desc Create Post
 // @access Private
@@ -21,7 +19,16 @@ router.get('/', (req, res) => {
       res.json(post)
     })
 })
-router.get('/test', (req, res) => res.json({ msg: 'Posts work' }))
+// @route   GET api/posts/:id
+// @desc    Get post by id
+// @access  Public
+router.get('/:id', (req, res) => {
+  Post.findById(req.params.id)
+    .then(post => res.json(post))
+    .catch(err =>
+      res.status(404).json({ nopostfound: 'No post found with that ID' })
+    )
+})
 //@route Post api/Posts
 // @desc Create Post
 // @access Private

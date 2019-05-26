@@ -19,6 +19,8 @@ import AddEducation from './Components/add-info/AddEducation'
 import Profiles from './Components/profiles/Profiles'
 import Profile from './Components/view-profile/Profile'
 import NotFound from './Components/NotFound/NotFound'
+import Posts from './Components/posts/Posts'
+import Post from './Components/post/Post'
 //Check for token
 if (localStorage.jwtToken) {
   //Set auth token header auth
@@ -90,6 +92,12 @@ class App extends React.Component {
               <Route exact path="/profiles" component={Profiles} />
               <Route exact path="/profile/:handle" component={Profile} />
               <Route exact path="/not-found" component={NotFound} />
+              <Switch>
+                <PrivateRoute exact path="/feed" component={Posts} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/post/:id" component={Post} />
+              </Switch>
             </div>
             <Footer />
           </div>
