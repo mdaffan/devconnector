@@ -5,8 +5,7 @@
   "description": "Social network for geeks",
   "scripts": {
     "dev": "webpack-dev-server --mode development",
-    "build": "webpack -p --env production",
-    "heroku-postbuild": "npm run build"
+    "build": "webpack -p --env production"
   },
   "proxy": {
     "/api": {
