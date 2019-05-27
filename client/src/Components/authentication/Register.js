@@ -48,9 +48,7 @@ class Register extends React.Component {
           <div className="row">
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Sign Up</h1>
-              <p className="lead text-center">
-                Create your DevConnector account
-              </p>
+              <p className="lead text-center">Create your DevWorld account</p>
               <form onSubmit={this.handleSubmit}>
                 <TextFieldGroup
                   placeholder="Name"
@@ -86,7 +84,7 @@ class Register extends React.Component {
                   error={errors.password2}
                 />
 
-                <input type="submit" className="btn btn-info btn-block mt-4" />
+                <input type="submit" className="btn btn-info btn-block mt-3" />
               </form>
             </div>
           </div>

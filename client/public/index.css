@@ -4,9 +4,10 @@ img {
 
 .landing {
   position: relative;
-  background: url('./img/showcase.jpg') no-repeat;
-  background-size: cover;
+  background: url('./img/worldofdev.png') no-repeat;
+  background-size: auto;
   background-position: center;
+
   height: 100vh;
   margin-top: -24px;
   margin-bottom: -50px;

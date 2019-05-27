@@ -38,11 +38,25 @@ module.exports = env => {
               options: {}
             }
           ]
+        },
+        {
+          test: /\.svg$/,
+          use: [{ loader: 'svg-inline-loader' }]
         }
       ]
     },
     devtool: isProduction ? 'source-map' : 'cheap-module-eval-source-map',
     devServer: {
+      proxy: {
+        '/api/*': {
+          target: 'http://localhost:5000/',
+          secure: 'false'
+        },
+        '/users': {
+          target: 'http://localhost:5000/',
+          secure: 'false'
+        }
+      },
       contentBase: path.resolve(__dirname, 'public'),
       publicPath: '/scripts/',
       historyApiFallback: true

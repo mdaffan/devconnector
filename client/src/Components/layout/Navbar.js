@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { logoutUser } from '../../actions/authActions'
 import { clearCurrentProfile } from '../../actions/profileActions'
+
 class Navbar extends React.Component {
   onLogoutClick = e => {
     e.preventDefault()
@@ -56,7 +57,8 @@ class Navbar extends React.Component {
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            WorldOfDevelopers
+            <i className="fas fa-biohazard mr-2" />
+            DevWorld
           </Link>
           <button
             className="navbar-toggler"
