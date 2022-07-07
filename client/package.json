@@ -30,7 +30,7 @@
     "cors": "^2.8.5",
     "error-overlay-webpack-plugin": "^0.1.7",
     "jwt-decode": "^2.2.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "raw-loader": "^2.0.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
